@@ -1,0 +1,71 @@
+.container {
+    max-width: 380px; /* Sedikit mengurangi lebar kontainer untuk tampilan yang lebih rapi */
+    padding: 30px; /* Mengurangi padding agar konten lebih terpusat */
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Pusatkan kontainer horizontal */
+}
+
+.form-container {
+    text-align: center;
+    width: 100%; /* Pastikan form container mengisi kontainer utama */
+}
+
+h2 {
+    margin-bottom: 20px;
+    color: #333;
+}
+
+label {
+    display: block;
+    margin-bottom: 10px;
+    color: #666;
+    text-align: left;
+}
+
+.input-container {
+    margin-bottom: 20px;
+    text-align: left; /* Pusatkan teks input ke kiri */
+}
+
+input[type="email"],
+input[type="password"] {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+input[type="submit"] {
+    width: 100%;
+    padding: 12px;
+    background-color: #4caf50;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+input[type="submit"]:hover {
+    background-color: #45a049;
+}
+
+.extra-links {
+    margin-top: 20px;
+    text-align: center; /* Pusatkan teks tautan ekstra */
+}
+
+.extra-links a {
+    text-decoration: none;
+    color: #666;
+    margin-right: 10px;
+}
+
+.extra-links a:hover {
+    text-decoration: underline;
+}
