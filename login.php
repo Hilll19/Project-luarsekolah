@@ -108,6 +108,14 @@
                         <label for="password"><i class="fas fa-lock"></i> Password</label>
                         <input type="password" id="password" name="password" required>
                     </div>
+                    <div class="input-container">
+                        <label for="role"><i class="fas fa-user-shield"></i> Role</label>
+                        <select id="role" name="role" required>
+                            <option value="">Pilih Role</option>
+                            <option value="admin">Admin</option>
+                            <option value="user">User</option>
+                        </select>
+                    </div>
                     <input type="submit" value="Login">
                 </form>
                 <div class="extra-links">

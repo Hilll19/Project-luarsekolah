@@ -16,6 +16,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Ambil nilai email dan password dari form login
     $email = $_POST['email'];
     $password = $_POST['password'];
+    $role = $_POST['role'];
 
     // Buat kueri SQL untuk mencari email di tabel users
     $sql = "SELECT * FROM users WHERE email = ?";
@@ -29,15 +30,27 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $row = $result->fetch_assoc();
         // Verifikasi password
         if (password_verify($password, $row['password'])) {
-            // Login berhasil, redirect ke halaman home.php
-            header("Location: landingpage.php");
-            exit();
+            // Periksa role
+            if ($row['role'] === $role) {
+                // Login berhasil dengan role yang sesuai
+                if ($role === 'admin') {
+                    // Redirect ke halaman admin
+                    echo "<script>alert('Admin berhasil login'); window.location.href = 'admin_home.php';</script>";
+                    exit();
+                } elseif ($role === 'user') {
+                    // Redirect ke halaman user
+                    echo "<script>alert('User berhasil login'); window.location.href = 'landingpage.php';</script>";
+                    exit();
+                }
+            } else {
+                echo "<script>alert('Peran yang Anda pilih tidak sesuai dengan peran yang terdaftar'); window.location.href = 'login.php';</script>";
+            }
         } else {
             echo "Password salah!";
         }
     } else {
-        header("Location: alertnotregister.php");
-         exit();
+        // Jika email tidak ditemukan di database
+        echo "Email tidak terdaftar.";
     }
 
     $stmt->close();

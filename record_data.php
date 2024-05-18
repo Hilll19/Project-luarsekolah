@@ -31,8 +31,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     // Eksekusi kueri dan periksa apakah data berhasil disimpan
     if ($stmt->execute()) {
-        header("Location: login.php");
-         exit();
+        echo "<script>alert('Registrasi berhasil!'); window.location.href = 'login.php';</script>";
+        exit();
         // Redirect ke halaman login atau halaman lainnya
     } else {
         echo "Error: " . $sql . "<br>" . $conn->error;
